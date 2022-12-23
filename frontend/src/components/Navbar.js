@@ -1,0 +1,101 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
+import mainLogo from '../assets/Logo.png';
+
+import styled from 'styled-components';
+
+const navLinks = [
+  { id: 1, body: 'home', url: '/' },
+  { id: 2, body: 'about', url: '/about' },
+  { id: 3, body: 'All games', url: '/games' },
+];
+
+function Navbar() {
+  return (
+    <Header>
+      <div className='nav_center'>
+        <div className='nav_logo'>
+          <Link>
+            <img src={mainLogo} alt='main logo' />
+          </Link>
+        </div>
+        <button type='button' className='nav_toggle'>
+          <FaBars />
+        </button>
+      </div>
+      <ul className='nav_links'>
+        {navLinks.map(({ id, body, url }) => {
+          return (
+            <li key={id}>
+              <Link to={url}>{body}</Link>
+            </li>
+          );
+        })}
+      </ul>
+    </Header>
+  );
+}
+
+const Header = styled.header`
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .nav_center {
+    width: 90vw;
+    margin: 0 auto;
+    max-width: var(--max-width);
+  }
+  .nav_logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img {
+      width: 200px;
+    }
+  }
+  .nav_toggle {
+    background: transparent;
+    border: transparent;
+    color: var(--clr-primary-5);
+    cursor: pointer;
+    svg {
+      font-size: 2rem;
+    }
+    nav_links {
+      display: none;
+    }
+
+    @media (min-width: 900px) {
+      .nav_toggle {
+        display: none;
+      }
+      .nav_center {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+      }
+      .nav_links {
+        display: flex;
+        justify-content: center;
+        li {
+          margin: 0 0.5rem;
+        }
+        a {
+          color: var(--clr-grey-3);
+          font-size: 1rem;
+          text-transform: capitalize;
+          letter-spacing: var(--spacing);
+          padding: 0.5rem;
+          &:hover {
+            border-bottom: 2px solid var(--clr-primary-7);
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default Navbar;
