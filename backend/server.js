@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const router = require('./routers/MainRouter');
 
 const app = express();
 
@@ -21,6 +22,8 @@ mongoose
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
+
+app.use('/', router);
 
 app.listen(port, () => {
   console.log('server is running on port ' + port);

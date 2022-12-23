@@ -48,6 +48,7 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--clr-white);
 
   .nav_center {
     width: 90vw;
@@ -79,7 +80,7 @@ const Header = styled.header`
   }
 
   @media (min-width: 900px) {
-    margin: 0 2%;
+    padding: 0 5%;
     .nav_toggle {
       display: none;
     }

@@ -1,0 +1,13 @@
+POST http://localhost:4000/add-product
+Content-Type: application/json
+
+{
+  "id": 3,
+  "title": "FIFA 23 Standard",
+  "image": "https://baitukas.lt/wp-content/uploads/2022/09/6573696c3328d95cd45e320f20383b93.jpg",
+  "price": 39.99,
+  "genre": "Sports",
+  "releaseDate": "2022"
+}
+###
+GET http://localhost:4000/products
