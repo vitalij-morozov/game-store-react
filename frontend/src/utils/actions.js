@@ -1,2 +1,6 @@
 export const SIDEBAR_OPEN = 'SIDEBAR_OPEN';
 export const SIDEBAR_CLOSE = 'SIDEBAR_CLOSE';
+
+export const GET_GAMES_START = 'GET_GAMES_START';
+export const GET_GAMES_SUCCESS = 'GET_GAMES_SUCCESS';
+export const GET_GAMES_ERROR = 'GET_GAMES_ERROR';
