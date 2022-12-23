@@ -66,12 +66,12 @@ const Header = styled.header`
     svg {
       font-size: 2rem;
     }
-    .nav_links {
-      display: none;
-    }
-    .cart_btn_container {
-      display: none;
-    }
+  }
+  .nav_links {
+    display: none;
+  }
+  .cart_btn_container {
+    display: none;
   }
 
   @media (min-width: 900px) {
