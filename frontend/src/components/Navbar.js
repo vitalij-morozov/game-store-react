@@ -9,7 +9,7 @@ import CartButtons from './CartButtons';
 const navLinks = [
   { id: 1, body: 'home', url: '/' },
   { id: 2, body: 'about', url: '/about' },
-  { id: 3, body: 'All games', url: '/games' },
+  { id: 3, body: 'games', url: '/games' },
 ];
 
 function Navbar() {
