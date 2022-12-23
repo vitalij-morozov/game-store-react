@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import mainLogo from '../assets/Logo.png';
-
 import styled from 'styled-components';
+
+import CartButtons from './CartButtons';
 
 const navLinks = [
   { id: 1, body: 'home', url: '/' },
@@ -15,14 +16,14 @@ function Navbar() {
   return (
     <Header>
       <div className='nav_center'>
-        <div className='nav_logo'>
+        <div className='nav_heading'>
           <Link>
             <img src={mainLogo} alt='main logo' />
           </Link>
+          <button type='button' className='nav_toggle'>
+            <FaBars />
+          </button>
         </div>
-        <button type='button' className='nav_toggle'>
-          <FaBars />
-        </button>
       </div>
       <ul className='nav_links'>
         {navLinks.map(({ id, body, url }) => {
@@ -33,6 +34,7 @@ function Navbar() {
           );
         })}
       </ul>
+      <CartButtons />
     </Header>
   );
 }
@@ -48,7 +50,7 @@ const Header = styled.header`
     margin: 0 auto;
     max-width: var(--max-width);
   }
-  .nav_logo {
+  .nav_heading {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -64,36 +66,43 @@ const Header = styled.header`
     svg {
       font-size: 2rem;
     }
-    nav_links {
+    .nav_links {
       display: none;
     }
+    .cart_btn_container {
+      display: none;
+    }
+  }
 
-    @media (min-width: 900px) {
-      .nav_toggle {
-        display: none;
+  @media (min-width: 900px) {
+    margin: 0 2%;
+    .nav_toggle {
+      display: none;
+    }
+    .nav_center {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+    }
+    .nav_links {
+      display: flex;
+      justify-content: center;
+      li {
+        margin: 0 0.5rem;
       }
-      .nav_center {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        align-items: center;
-      }
-      .nav_links {
-        display: flex;
-        justify-content: center;
-        li {
-          margin: 0 0.5rem;
+      a {
+        color: var(--clr-grey-3);
+        font-size: 1rem;
+        text-transform: capitalize;
+        letter-spacing: var(--spacing);
+        padding: 0.5rem;
+        &:hover {
+          border-bottom: 2px solid var(--clr-primary-7);
         }
-        a {
-          color: var(--clr-grey-3);
-          font-size: 1rem;
-          text-transform: capitalize;
-          letter-spacing: var(--spacing);
-          padding: 0.5rem;
-          &:hover {
-            border-bottom: 2px solid var(--clr-primary-7);
-          }
-        }
       }
+    }
+    .cart_btn_container {
+      display: grid;
     }
   }
 `;
