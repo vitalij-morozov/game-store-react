@@ -4,5 +4,11 @@ import Sidebar from './Sidebar';
 import PageHero from './PageHero';
 import Hero from './Hero';
 import TopDeals from './TopDeals';
+import Error from './Error';
+import Loading from './Loading';
+import Game from './Game';
+import GameImages from './GameImages';
+import Stars from './Stars';
+import AddToCart from './AddToCart';
 
-export { Navbar, Footer, Sidebar, PageHero, Hero, TopDeals };
+export { Navbar, Footer, Sidebar, PageHero, Hero, TopDeals, Error, Loading, Game, GameImages, Stars, AddToCart };

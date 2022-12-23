@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-function PageHero({ title }) {
+function PageHero({ title, prod }) {
   return (
     <Container>
       <div className='section-center'>
         <h3>
-          <Link to='/'>Home</Link> / {title}
+          <Link to='/'>Home</Link> /{prod && <Link to='/games'></Link>}/{title}
         </h3>
       </div>
     </Container>

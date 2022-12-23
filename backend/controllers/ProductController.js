@@ -23,6 +23,7 @@ const getAllProducts = async (req, res) => {
 const getProductById = async (req, res) => {
   try {
     const { gameId } = req.params;
+    console.log('gameId ===', gameId);
     const product = await ProductSchema.findOne({ id: gameId });
     return res.json({ error: false, data: product });
   } catch (error) {

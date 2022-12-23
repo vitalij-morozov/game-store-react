@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
+import { priceFormat } from '../utils/helpers';
 import styled from 'styled-components';
 
 function Game({ image, title, price, id }) {
@@ -14,7 +15,7 @@ function Game({ image, title, price, id }) {
       </div>
       <footer>
         <h5>{title}</h5>
-        <p>{price}</p>
+        <p>{priceFormat(price)}</p>
       </footer>
     </Container>
   );
