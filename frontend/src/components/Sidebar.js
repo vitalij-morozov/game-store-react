@@ -13,14 +13,14 @@ const navLinks = [
 ];
 
 function Sidebar() {
-  const isOpen = true;
+  const { isSidebarOpen, closeSidebar } = useGamesContext();
 
   return (
     <Container>
-      <aside className={`${isOpen ? 'sidebar show_sidebar' : 'sidebar'}`}>
+      <aside className={`${isSidebarOpen ? 'sidebar show_sidebar' : 'sidebar'}`}>
         <div className='sidebar_heading'>
           <img src={mainLogo} alt='main logo' />
-          <button type='button' className='close_btn'>
+          <button type='button' className='close_btn' onClick={closeSidebar}>
             <FaTimes />
           </button>
         </div>

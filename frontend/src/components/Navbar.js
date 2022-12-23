@@ -4,6 +4,8 @@ import { FaBars } from 'react-icons/fa';
 import mainLogo from '../assets/Logo.png';
 import styled from 'styled-components';
 
+import { useGamesContext } from '../context/GamesContext';
+
 import CartButtons from './CartButtons';
 
 const navLinks = [
@@ -13,6 +15,8 @@ const navLinks = [
 ];
 
 function Navbar() {
+  const { openSidebar } = useGamesContext();
+
   return (
     <Header>
       <div className='nav_center'>
@@ -20,7 +24,7 @@ function Navbar() {
           <Link>
             <img src={mainLogo} alt='main logo' />
           </Link>
-          <button type='button' className='nav_toggle'>
+          <button type='button' className='nav_toggle' onClick={openSidebar}>
             <FaBars />
           </button>
         </div>

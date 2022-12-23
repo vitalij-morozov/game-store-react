@@ -1,5 +1,6 @@
 import React, { useContext, useReducer } from 'react';
-import { useEffect } from 'react';
+
+import reducer from '../reducers/GamesReducer';
 import { SIDEBAR_OPEN, SIDEBAR_CLOSE } from '../utils/actions';
 
 const initialState = {
@@ -9,7 +10,7 @@ const initialState = {
 const GamesContext = React.createContext();
 
 export const GamesProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const openSidebar = () => {
     dispatch({ type: SIDEBAR_OPEN });
@@ -17,8 +18,6 @@ export const GamesProvider = ({ children }) => {
   const closeSidebar = () => {
     dispatch({ type: SIDEBAR_CLOSE });
   };
-
-  useEffect(() => {});
 
   return <GamesContext.Provider value={{ ...state, openSidebar, closeSidebar }}>{children}</GamesContext.Provider>;
 };
