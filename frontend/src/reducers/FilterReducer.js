@@ -11,7 +11,14 @@ import {
 
 const FilterReducer = (state, action) => {
   if (action.type === LOAD_GAMES) {
-    return { ...state, all_games: [...action.payload], filtered_games: [...action.payload] };
+    let maxPrice = action.payload.map((g) => g.price);
+    maxPrice = Math.max(...maxPrice);
+    return {
+      ...state,
+      all_games: [...action.payload],
+      filtered_games: [...action.payload],
+      filters: { ...state.filters, max_price: maxPrice, price: maxPrice },
+    };
   }
   if (action.type === SET_GRID) {
     return { ...state, grid_view: true };
@@ -42,6 +49,35 @@ const FilterReducer = (state, action) => {
       });
     }
     return { ...state, filtered_games: temp };
+  }
+  if (action.type === FILTER_UPDATE) {
+    const { name, value } = action.payload;
+    return { ...state, filters: { ...state.filters, [name]: value } };
+  }
+  if (action.type === FILTER_GAMES) {
+    const { all_games } = state;
+    const { text, genre, price } = state.filters;
+    let temp = [...all_games];
+    if (text) {
+      temp = temp.filter((game) => game.title.toLowerCase().startsWith(text));
+    }
+    if (genre !== 'all') {
+      temp = temp.filter((game) => game.genre === genre);
+    }
+    temp = temp.filter((g) => g.price <= price);
+
+    return { ...state, filtered_games: temp };
+  }
+  if (action.type === FILTER_CLEAR) {
+    return {
+      ...state,
+      filters: {
+        ...state.filters,
+        text: '',
+        genre: 'all',
+        price: state.filters.max_price,
+      },
+    };
   }
 };
 
