@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useGamesContext } from '../context/GamesContext';
 import { useCartContext } from '../context/CartContext';
+import { useUserContext } from '../context/UserContext';
 
 function CartButtons() {
   const { closeSidebar } = useGamesContext();
   const { total_items } = useCartContext();
+  const { loginWithRedirect, logout, myUser } = useUserContext();
   return (
     <Container className='cart_btn_container'>
       <Link to='/cart' className='cart_btn' onClick={closeSidebar}>
@@ -16,9 +18,15 @@ function CartButtons() {
           <span className='cart_amount'>{total_items}</span>
         </span>
       </Link>
-      <button type='button' className='auth_btn'>
-        Login
-      </button>
+      {myUser ? (
+        <button type='button' className='auth_btn' onClick={() => logout({ returnTo: window.location.origin })}>
+          Logout
+        </button>
+      ) : (
+        <button type='button' className='auth_btn' onClick={loginWithRedirect}>
+          Login
+        </button>
+      )}
     </Container>
   );
 }
