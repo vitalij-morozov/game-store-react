@@ -17,6 +17,7 @@ const initialState = {
   filtered_games: [],
   all_games: [],
   grid_view: true,
+  sort: 'price_low',
 };
 
 const FilterContext = React.createContext();
@@ -29,14 +30,26 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: LOAD_GAMES, payload: games });
   }, [games]);
 
+  useEffect(() => {
+    dispatch({ type: SORT_GAMES });
+  }, [games, state.sort]);
+
   const setGridView = () => {
     dispatch({ type: SET_GRID });
   };
   const setListView = () => {
     dispatch({ type: SET_LIST });
   };
+  const updateSort = (e) => {
+    const value = e.target.value;
+    dispatch({ type: SORT_UPDATE, payload: value });
+  };
 
-  return <FilterContext.Provider value={{ ...state, setGridView, setListView }}>{children}</FilterContext.Provider>;
+  return (
+    <FilterContext.Provider value={{ ...state, setGridView, setListView, updateSort }}>
+      {children}
+    </FilterContext.Provider>
+  );
 };
 
 export const useFilterContext = () => {

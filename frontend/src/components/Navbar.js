@@ -21,7 +21,7 @@ function Navbar() {
     <Header>
       <div className='nav_center'>
         <div className='nav_heading'>
-          <Link>
+          <Link to='/'>
             <img src={mainLogo} alt='main logo' />
           </Link>
           <button type='button' className='nav_toggle' onClick={openSidebar}>

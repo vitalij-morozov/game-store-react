@@ -19,6 +19,30 @@ const FilterReducer = (state, action) => {
   if (action.type === SET_LIST) {
     return { ...state, grid_view: false };
   }
+  if (action.type === SORT_UPDATE) {
+    return { ...state, sort: action.payload };
+  }
+  if (action.type === SORT_GAMES) {
+    const { sort, filtered_games } = state;
+    let temp = [...filtered_games];
+    if (sort === 'price_low') {
+      temp = temp.sort((a, b) => a.price - b.price);
+    }
+    if (sort === 'price_high') {
+      temp = temp.sort((a, b) => b.price - a.price);
+    }
+    if (sort === 'name_a') {
+      temp = temp.sort((a, b) => {
+        return a.title.localeCompare(b.name);
+      });
+    }
+    if (sort === 'name_z') {
+      temp = temp.sort((a, b) => {
+        return b.title.localeCompare(a.name);
+      });
+    }
+    return { ...state, filtered_games: temp };
+  }
 };
 
 export default FilterReducer;
