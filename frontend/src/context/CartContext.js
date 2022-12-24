@@ -28,15 +28,26 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: ADD_TO_CART, payload: { id, amount, game } });
   };
 
-  const removeItem = (id) => {};
-  const toggleAmount = (id, value) => {};
-  const clearCart = () => {};
+  const removeItem = (id) => {
+    dispatch({ type: REMOVE_FROM_CART, payload: id });
+  };
+
+  const toggleAmount = (id, value) => {
+    dispatch({ type: TOGGLE_CART_ITEM_COUNT, payload: { id, value } });
+  };
+  const clearCart = () => {
+    dispatch({ type: CLEAR_CART });
+  };
 
   useEffect(() => {
+    dispatch({ type: CART_TOTALS });
     localStorage.setItem('cart', JSON.stringify(state.cart));
   }, [state.cart]);
+
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}></CartContext.Provider>
+    <CartContext.Provider value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}>
+      {children}
+    </CartContext.Provider>
   );
 };
 

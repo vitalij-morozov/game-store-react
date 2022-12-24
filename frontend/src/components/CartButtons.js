@@ -3,16 +3,17 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useGamesContext } from '../context/GamesContext';
+import { useCartContext } from '../context/CartContext';
 
 function CartButtons() {
   const { closeSidebar } = useGamesContext();
-
+  const { total_items } = useCartContext();
   return (
     <Container className='cart_btn_container'>
       <Link to='/cart' className='cart_btn' onClick={closeSidebar}>
         <span className='cart_container'>
           <FaShoppingCart />
-          <span className='cart_amount'>0</span>
+          <span className='cart_amount'>{total_items}</span>
         </span>
       </Link>
       <button type='button' className='auth_btn'>
