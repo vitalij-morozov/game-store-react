@@ -16,7 +16,7 @@ import reducer from '../reducers/FilterReducer';
 const initialState = {
   filtered_games: [],
   all_games: [],
-  grid_view: false,
+  grid_view: true,
 };
 
 const FilterContext = React.createContext();
@@ -29,7 +29,14 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: LOAD_GAMES, payload: games });
   }, [games]);
 
-  return <FilterContext.Provider value={{ ...state }}>{children}</FilterContext.Provider>;
+  const setGridView = () => {
+    dispatch({ type: SET_GRID });
+  };
+  const setListView = () => {
+    dispatch({ type: SET_LIST });
+  };
+
+  return <FilterContext.Provider value={{ ...state, setGridView, setListView }}>{children}</FilterContext.Provider>;
 };
 
 export const useFilterContext = () => {
