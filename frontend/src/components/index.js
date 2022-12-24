@@ -13,7 +13,7 @@ import AddToCart from './AddToCart';
 import Filters from './Filters';
 import GamesList from './GamesList';
 import Sort from './Sort';
-
+import CartContent from './CartContent';
 export {
   Navbar,
   Footer,
@@ -30,4 +30,5 @@ export {
   Filters,
   GamesList,
   Sort,
+  CartContent,
 };

@@ -3,8 +3,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import AmountButtons from './AmountButtons';
+import { useCartContext } from '../context/CartContext';
 
-function AddToCart() {
+function AddToCart({ prod: game }) {
+  const { addToCart } = useCartContext();
+
+  const { id } = game;
+
   const [amount, setAmount] = useState(1);
 
   const increaseAmount = () => {
@@ -25,7 +30,7 @@ function AddToCart() {
     <Container>
       <div className='btn_container'>
         <AmountButtons amount={amount} increase={increaseAmount} decrease={decreaseAmount} />
-        <Link to='/cart' className='btn'>
+        <Link to='/cart' className='btn' onClick={() => addToCart(id, amount, game)}>
           Add To Cart
         </Link>
       </div>

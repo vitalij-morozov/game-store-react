@@ -17,3 +17,9 @@ export const FILTER_UPDATE = 'FILTER_UPDATE';
 export const FILTER_CLEAR = 'FILTER_CLEAR';
 export const FILTER_GAMES = 'FILTER_GAMES';
 export const SORT_GAMES = 'SORT_GAMES';
+
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+export const TOGGLE_CART_ITEM_COUNT = 'TOGGLE_CART_ITEM_COUNT';
+export const CLEAR_CART = 'CLEAR_CART';
+export const CART_TOTALS = 'CART_TOTALS';
