@@ -2,19 +2,20 @@ import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-function GameImages({ images = [''] }) {
-  const [mainImage, setMainImage] = useState(images[0]);
+function GameImages({ images = [''], image = '' }) {
+  const carImages = [image, ...images];
+  const [mainImage, setMainImage] = useState(carImages[0]);
 
   return (
     <Container>
       <img src={mainImage} alt='main' className='main' />
       <div className='gallery'>
-        {images.map((img, index) => (
+        {carImages.map((img, index) => (
           <img
             src={img}
             key={index}
             alt={'gallery img'}
-            onClick={() => setMainImage(images[index])}
+            onClick={() => setMainImage(carImages[index])}
             className={`${img === mainImage ? 'active' : null}`}
           />
         ))}

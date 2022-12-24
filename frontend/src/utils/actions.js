@@ -8,3 +8,12 @@ export const GET_GAMES_ERROR = 'GET_GAMES_ERROR';
 export const GET_SINGLE_GAME_START = 'GET_SINGLE_GAME_START';
 export const GET_SINGLE_GAME_SUCCESS = 'GET_SINGLE_GAME_SUCCESS';
 export const GET_SINGLE_GAME_ERROR = 'GET_SINGLE_GAME_ERROR';
+
+export const LOAD_GAMES = 'LOAD_GAMES';
+export const SET_GRID = 'SET_GRID';
+export const SET_LIST = 'SET_LIST';
+export const SORT_UPDATE = 'SORT_UPDATE';
+export const FILTER_UPDATE = 'FILTER_UPDATE';
+export const FILTER_CLEAR = 'FILTER_CLEAR';
+export const FILTER_GAMES = 'FILTER_GAMES';
+export const SORT_GAMES = 'SORT_GAMES';

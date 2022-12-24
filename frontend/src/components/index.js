@@ -10,5 +10,24 @@ import Game from './Game';
 import GameImages from './GameImages';
 import Stars from './Stars';
 import AddToCart from './AddToCart';
+import Filters from './Filters';
+import GamesList from './GamesList';
+import Sort from './Sort';
 
-export { Navbar, Footer, Sidebar, PageHero, Hero, TopDeals, Error, Loading, Game, GameImages, Stars, AddToCart };
+export {
+  Navbar,
+  Footer,
+  Sidebar,
+  PageHero,
+  Hero,
+  TopDeals,
+  Error,
+  Loading,
+  Game,
+  GameImages,
+  Stars,
+  AddToCart,
+  Filters,
+  GamesList,
+  Sort,
+};

@@ -10,7 +10,7 @@ import { priceFormat } from '../utils/helpers';
 const SingleGamePage = () => {
   const navigate = useNavigate();
   const { gameId } = useParams();
-  console.log('id  ===', gameId);
+
   const {
     single_game_loading: loading,
     single_game_error: error,
@@ -30,16 +30,15 @@ const SingleGamePage = () => {
     }
   }, [error]);
 
-  console.log('game ===', game);
   if (loading) {
     return <Loading />;
   }
   if (error) {
     return <Error />;
   }
-
+  console.log('game ===', game);
   const { title, image, genre, screenshots, price, stars } = game;
-
+  console.log('screenshots ===', screenshots);
   return (
     <Container>
       <PageHero title={title} prod={game} />
@@ -48,7 +47,7 @@ const SingleGamePage = () => {
           back to all games
         </Link>
         <div className='product_center'>
-          <GameImages images={[image, ...screenshots]} />
+          <GameImages images={screenshots} image={image} />
           <section className='content'>
             <h2>{title}</h2>
             <Stars stars={+stars} />
