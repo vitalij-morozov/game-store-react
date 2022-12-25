@@ -40,7 +40,7 @@ function Filters() {
                     key={index}
                     onClick={updateFilters}
                     name='genre'
-                    className={`${genre === g.toLowerCase() ? 'active' : null}`}
+                    className={`${genre.toLowerCase() === g.toLowerCase() ? 'active' : null}`}
                     type='button'
                   >
                     {g}
@@ -91,6 +91,7 @@ const Container = styled.section`
     letter-spacing: var(--spacing);
     color: var(--clr-grey-10);
     cursor: pointer;
+    font-size: 0.9rem;
   }
   .active {
     border-color: var(--clr-grey-10);

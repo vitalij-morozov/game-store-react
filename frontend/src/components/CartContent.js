@@ -8,7 +8,7 @@ import CartTotals from './CartTotals';
 
 function CartContent() {
   const { cart, clearCart } = useCartContext();
-
+  console.log('cart ===', cart);
   return (
     <Container className='section section-center'>
       <CartColumns />

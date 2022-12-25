@@ -5,7 +5,7 @@ function Footer() {
   return (
     <Container>
       <h5>&copy; {new Date().getFullYear()}</h5>
-      <span>GameShop Pet Project</span>
+      <span>GameBuy Pet Project (ReactJs, MongoDb, Express, NodeJs)</span>
     </Container>
   );
 }

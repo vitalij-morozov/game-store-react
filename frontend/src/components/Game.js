@@ -14,7 +14,7 @@ function Game({ image, title, price, id }) {
         </Link>
       </div>
       <footer>
-        <h5>{title}</h5>
+        <h5 className='title'>{title}</h5>
         <p>{priceFormat(price)}</p>
       </footer>
     </Container>
@@ -66,6 +66,10 @@ const Container = styled.article`
     justify-content: space-between;
     align-items: center;
   }
+  .title {
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
   footer h5,
   footer p {
     margin-bottom: 0;
@@ -73,8 +77,9 @@ const Container = styled.article`
   }
 
   footer p {
-    color: var(--clr-primary-5);
+    color: var(--clr-primary-7);
     letter-spacing: var(--spacing);
+    font-size: 1.1rem;
   }
 `;
 

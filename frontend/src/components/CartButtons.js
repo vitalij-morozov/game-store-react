@@ -2,6 +2,7 @@ import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { BiLogIn, BiLogOut } from 'react-icons/bi';
 import { useGamesContext } from '../context/GamesContext';
 import { useCartContext } from '../context/CartContext';
 import { useUserContext } from '../context/UserContext';
@@ -20,11 +21,11 @@ function CartButtons() {
       </Link>
       {myUser ? (
         <button type='button' className='auth_btn' onClick={() => logout({ returnTo: window.location.origin })}>
-          Logout
+          Logout <BiLogOut />
         </button>
       ) : (
         <button type='button' className='auth_btn' onClick={loginWithRedirect}>
-          Login
+          Login <BiLogIn />
         </button>
       )}
     </Container>
@@ -35,7 +36,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  width: 220px;
+  width: 200px;
 
   .cart_btn {
     color: var(--clr-grey-1);
@@ -43,7 +44,7 @@ const Container = styled.div`
     letter-spacing: var(--spacing);
     color: var(--clr-grey-1);
     display: flex;
-
+    margin-left: 5px;
     align-items: center;
   }
   .cart_container {
@@ -75,7 +76,7 @@ const Container = styled.div`
     align-items: center;
     background: transparent;
     border-color: transparent;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     cursor: pointer;
     color: var(--clr-grey-1);
     letter-spacing: var(--spacing);

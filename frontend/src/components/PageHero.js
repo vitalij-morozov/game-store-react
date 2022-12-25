@@ -7,7 +7,8 @@ function PageHero({ title, prod }) {
     <Container>
       <div className='section-center'>
         <h3>
-          <Link to='/'>Home</Link> /{prod && <Link to='/games'></Link>}/{title}
+          <Link to='/'>Home</Link>
+          {prod && <Link to='/games'>/ Games</Link>}/ {title}
         </h3>
       </div>
     </Container>
@@ -15,15 +16,18 @@ function PageHero({ title, prod }) {
 }
 
 const Container = styled.section`
-  background-color: var(--clr-primary-9);
+  background-color: var(--clr-primary-6);
   width: 100%;
-  min-height: 20vh;
+  min-height: 15vh;
   display: flex;
   align-items: center;
-  color: var(--clr-primary-1);
+  color: var(--clr-black);
 
+  h3 {
+    margin: 0;
+  }
   a {
-    color: var(--clr-primary-1);
+    color: var(--clr-primary-4);
     padding: 0.5rem;
     transition: var(--transition);
   }

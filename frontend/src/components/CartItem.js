@@ -120,7 +120,7 @@ const Container = styled.article`
     .subtotal {
       display: block;
       margin-bottom: 0;
-      color: var(--clr-grey-5);
+      color: var(--clr-grey-10);
       font-weight: 400;
       font-size: 1rem;
     }
@@ -130,7 +130,7 @@ const Container = styled.article`
     .price {
       display: block;
       font-size: 1rem;
-      color: var(--clr-primary-5);
+      color: var(--clr-primary-10);
       font-weight: 400;
     }
     .name {

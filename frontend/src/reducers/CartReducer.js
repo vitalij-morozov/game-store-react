@@ -13,6 +13,7 @@ const CartReducer = (state, action) => {
           return item;
         }
       });
+      return { ...state, cart: tempCart };
     } else {
       const newItem = {
         id: id,
@@ -46,10 +47,13 @@ const CartReducer = (state, action) => {
           }
           return { ...item, amount: newAmount };
         }
+      } else {
+        return item;
       }
     });
     return { ...state, cart: temp };
   }
+
   if (action.type === CART_TOTALS) {
     const { total_items, total_amount } = state.cart.reduce(
       (total, item) => {

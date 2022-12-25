@@ -1,6 +1,6 @@
 import React from 'react';
 import { useGamesContext } from '../context/GamesContext';
-import { Link } from 'react-router-dom';
+
 import styled from 'styled-components';
 import Error from './Error';
 import Game from './Game';
@@ -36,7 +36,7 @@ const Container = styled.section`
     display: grid;
     gap: 2.5rem;
     img {
-      height: 475px;
+      height: 100%;
     }
   }
   .btn {
@@ -45,7 +45,7 @@ const Container = styled.section`
     margin: 0 auto;
     text-align: center;
   }
-  @media (min-width: 576px) {
+  @media (min-width: 776px) {
     .top {
       grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     }

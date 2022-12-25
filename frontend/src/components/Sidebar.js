@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import CartButtons from './CartButtons';
 import styled from 'styled-components';
 import { useGamesContext } from '../context/GamesContext';
+import { useUserContext } from '../context/UserContext';
 
 const navLinks = [
   { id: 1, body: 'home', url: '/' },
@@ -14,7 +15,7 @@ const navLinks = [
 
 function Sidebar() {
   const { isSidebarOpen, closeSidebar } = useGamesContext();
-
+  const { myUser } = useUserContext();
   return (
     <Container>
       <aside className={`${isSidebarOpen ? 'sidebar show_sidebar' : 'sidebar'}`}>
@@ -32,9 +33,13 @@ function Sidebar() {
               </li>
             );
           })}
-          <li>
-            <Link to='/checkout'>checkout</Link>
-          </li>
+          {myUser && (
+            <li>
+              <Link to='/checkout' onClick={closeSidebar}>
+                checkout
+              </Link>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </aside>

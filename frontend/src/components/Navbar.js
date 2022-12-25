@@ -5,6 +5,7 @@ import mainLogo from '../assets/Logo.png';
 import styled from 'styled-components';
 
 import { useGamesContext } from '../context/GamesContext';
+import { useUserContext } from '../context/UserContext';
 
 import CartButtons from './CartButtons';
 
@@ -16,7 +17,7 @@ const navLinks = [
 
 function Navbar() {
   const { openSidebar } = useGamesContext();
-
+  const { myUser } = useUserContext();
   return (
     <Header>
       <div className='nav_center'>
@@ -37,6 +38,11 @@ function Navbar() {
             </li>
           );
         })}
+        {myUser && (
+          <li>
+            <Link to='/checkout'>checkout</Link>
+          </li>
+        )}
       </ul>
       <CartButtons />
     </Header>

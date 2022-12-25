@@ -36,9 +36,9 @@ const SingleGamePage = () => {
   if (error) {
     return <Error />;
   }
-  console.log('game ===', game);
+
   const { title, image, genre, screenshots, price, stars } = game;
-  console.log('screenshots ===', screenshots);
+
   return (
     <Container>
       <PageHero title={title} prod={game} />
